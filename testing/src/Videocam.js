@@ -7,11 +7,12 @@ async function run() {
     await faceapi.nets.faceLandmark68Net.loadFromUri('/models');
     await faceapi.nets.faceRecognitionNet.loadFromUri('/models');
     await faceapi.nets.mtcnn.loadFromUri('/models');
-    //reference = referenceData();
+    referenceData();
 }
 async function referenceData() {
     const imgUrl = `Vaibhav Mittal.jpg`
-    const img = await faceapi.fetchImage(imgUrl)
+    console.log("Image aagiiii");
+    const img = await faceapi.fetchImage(imgUrl);
     const fullFaceDescription = await faceapi.detectSingleFace(img, new MtcnnOptions()).withFaceLandmarks().withFaceDescriptor();
     
     if (!fullFaceDescription) {
@@ -19,7 +20,8 @@ async function referenceData() {
     }
     
     const faceDescriptors = [fullFaceDescription.descriptor]
-    return new faceapi.LabeledFaceDescriptors("Vaibhav Mittal", faceDescriptors)
+    reference = [new faceapi.LabeledFaceDescriptors("Vaibhav Mittal", faceDescriptors)];
+    console.log(reference, "Hiii");
 }
 async function playFunc() {
     const mtcnnParams = {
@@ -34,21 +36,21 @@ async function playFunc() {
     faceapi.matchDimensions(canvas, displaySize);
     let fullFaceDescriptions = await faceapi.detectAllFaces(input, options).withFaceLandmarks().withFaceDescriptors();
     const resizedDetections = faceapi.resizeResults(fullFaceDescriptions, displaySize);
-    if(referenceData) {
-        const maxDescriptorDistance = 0.6
-        const faceMatcher = new faceapi.FaceMatcher(reference, maxDescriptorDistance)
-        const results = fullFaceDescriptions.map(fd => faceMatcher.findBestMatch(fd.descriptor));
-        results.forEach((bestMatch, i) => {
-            const box = fullFaceDescriptions[i].detection.box
-            const text = bestMatch.toString()
-            const drawBox = new faceapi.draw.DrawBox(box, { label: text })
-            drawBox.draw(canvas)
-        })
-    }
-    else {
+    // if(reference) {
+    //     // const maxDescriptorDistance = 0.6
+    //     // const faceMatcher = new faceapi.FaceMatcher(reference, maxDescriptorDistance)
+    //     // const results = fullFaceDescriptions.map(fd => faceMatcher.findBestMatch(fd.descriptor));
+    //     // results.forEach((bestMatch, i) => {
+    //     //     const box = fullFaceDescriptions[i].detection.box
+    //     //     const text = bestMatch.toString()
+    //     //     const drawBox = new faceapi.draw.DrawBox(box, { label: text })
+    //     //     drawBox.draw(canvas)
+    //     // })
+    // }
+    // else {
         faceapi.draw.drawDetections(canvas, resizedDetections)
         console.log(fullFaceDescriptions,1);
-    }
+    //}
     setTimeout(playFunc,500);
 }
 const Videocam = () => {
@@ -66,10 +68,11 @@ const Videocam = () => {
     },[]);
     return (
         <div className="margin">
-            <video style={{position: "absolute"}} id = "inputVideo" ref = {videoRef} autoPlay ={true} onPlay = {() =>playFunc(videoRef)} muted></video>
+            <video style={{position: "absolute"}} id = "inputVideo" ref = {videoRef} autoPlay ={true}  muted></video>
             <canvas style={{position: "absolute"}} id="overlay" />
         </div>
     );
+    //onPlay = {() =>playFunc(videoRef)}
 }
 
 
