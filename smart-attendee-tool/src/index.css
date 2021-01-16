@@ -6,8 +6,101 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  color: black;
+}
+.navbar {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+}
+.navbar_text {
+  text-align: center;
+  font-size: larger;
+  font-weight: bold;
+  padding: 0px 20px;
+}
+.nav_items {
+  margin-left: auto;
+  margin-right: 50px;
+}
+.nav_items > a {
+  margin-left: 50px;
+  padding: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.nav_items > a:hover {
+  border-bottom: 3px solid  #6415FF;
+  box-sizing: border-box;
+  color: #6415FF;
+  transition: border 100ms  ease-in;
+}
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 10px;
+}
+.hero_text {
+  max-width: 48rem;
+  margin-left: 50px;
+}
+.hero_heading {
+  font-size: 3rem;
+  color: #243E63;
+  font-weight: 900;
+}
+.hero_heading > span {
+  background-color: rgb(100, 21, 255);
+  color: rgb(247, 250, 252);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0.5rem;
+  --transform-translate-x: 0;
+  --transform-translate-y: 0;
+  --transform-rotate: 0;
+  --transform-skew-x: -12deg;
+  --transform-skew-y: 0;
+  --transform-scale-x: 1;
+  --transform-scale-y: 1;
+  transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+  display: inline-block;
+}
+.hero_text > p {
+  max-width: 30rem;
+  color: #7180A4;
+  font-weight: 500;
+}
+.hero_image > img {
+  height: 420px;
+  width: 640px;
+  border-radius: 50px;
+}
+.hero_buttons {
+  max-width: 24rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+.hero_buttons > .start {
+  padding: 7px 50px;
+  background-color: #6415FF;
+  color: white;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.hero_buttons > .watch {
+  font-size: 20px;
+  cursor: pointer;
+}
+.watch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.watch > span {
+  padding: 10px;
 }
