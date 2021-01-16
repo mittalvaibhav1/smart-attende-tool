@@ -45,7 +45,7 @@ async function playFunc() {
     let labeledDescriptors = reference;
     if(labeledDescriptors) {
         console.log(labeledDescriptors[0]);
-        const maxDescriptorDistance = 0.6
+        const maxDescriptorDistance = 0.6;
         const faceMatcher = new faceapi.FaceMatcher(labeledDescriptors[0]);
         const results = fullFaceDescriptions.map(fd => faceMatcher.findBestMatch(fd.descriptor));
         results.forEach((bestMatch, i) => {
@@ -63,7 +63,7 @@ async function playFunc() {
         faceapi.draw.drawDetections(canvas, resizedDetections)
         console.log(fullFaceDescriptions,1);
     }
-    setTimeout(playFunc,500);
+    setTimeout(playFunc);
 }
 const Videocam = () => {
     const videoRef = useRef(null);
