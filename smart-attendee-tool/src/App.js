@@ -1,15 +1,20 @@
-import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
-import Services from "./components/Services";
-import Footer from "./components/Footer";
+import Login from "./components/Login";
+import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
+import UserContextProvider from "./contexts/UserContext";
+import Home from "./components/Home";
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      <Hero/>
-      <Services />
-      <Footer />
+      <BrowserRouter>
+        <UserContextProvider>
+          <Switch>
+            <Route path="/login" component = {Login} />
+            <Route path="/" component = {Home} />
+            <Redirect to="/" />
+          </Switch>
+        </UserContextProvider>
+      </BrowserRouter>
     </div>
   );
 }

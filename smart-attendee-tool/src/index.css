@@ -148,6 +148,10 @@ body {
   transform: scale(1.1);
   transition: transform 300ms ease-in-out;
 }
+.item_content > span {
+  color: #6415FF;
+  cursor: pointer;
+}
 footer {
   background-color: #6415FF;
   width: 100%;
@@ -161,4 +165,78 @@ footer {
 footer > span, footer > span > a {
   margin: 0;
   color: white;
+}
+
+.login {
+  background-color: #6415FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.login_body {
+  display: flex;
+  background-color:#EEEFF3;
+  width: 70vw;
+  height: 80vh !important;
+  border-radius: 10px;
+}
+
+.login_body_content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+}
+.login_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:  2rem 3rem ;
+}
+.login_logo > img {
+  height: 5rem;
+  width: auto;
+}
+.login_button {
+  display: flex;
+  justify-content: space-evenly;
+  align-self: center;
+  background-color: rgb(247, 250, 252);
+  padding: 10px 30px;
+  margin: 10px auto;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+}
+.login_button:hover {
+  background-color:rgb(237, 242, 247) ;
+}
+.login_button_img > img{
+  height: 1.3rem;
+}
+.login_button_text {
+  margin-left: 10px;
+}
+
+.login_button_text > span {
+  margin: 0;
+  font-size: 15px;
+  text-align: center;
+}
+.login_body_svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EEEFF3;
+  border-radius: 10px;
+}
+.login_body_svg > img {
+  height: auto;
+  width: 100%;
 }
