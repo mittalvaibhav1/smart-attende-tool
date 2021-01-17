@@ -12,27 +12,27 @@ const Services = () => {
                     <div className="item_content">
                         <h3>Mark Attendance</h3>
                         <p>Click the link below to mark your attendance</p>
-                        <span>Mark Now</span>
+                        <span>Mark Now →</span>
                     </div>
                 </div>
                 <div className="services_item_">
                     <div className="item_image">
-                        <img src="./service1.png" alt=""/>
+                        <img src="./service2.png" alt=""/>
                     </div>
                     <div className="item_content">
                         <h3>View Attendance</h3>
                         <p>CLick the link below to view your attendance</p>
-                        <span>View Now</span>
+                        <span>View Now →</span>
                     </div>
                 </div>
                 <div className="services_item_">
                     <div className="item_image">
-                        <img src="./service1.png" alt=""/>
+                        <img src="./service3.png" alt=""/>
                     </div>
                     <div className="item_content">
                         <h3>Personalized Attendance Report</h3>
                         <p>Click the link below to generate your report</p>
-                        <span>Create Now</span>
+                        <span>Create Now →</span>
                     </div>
                 </div>
             </div>
