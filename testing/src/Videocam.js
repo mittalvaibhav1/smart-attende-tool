@@ -2,6 +2,7 @@ import { useEffect, useRef} from 'react';
 import * as faceapi from 'face-api.js';
 
 let reference =  null;
+let convertedRef = null;
 async function run() {
     await faceapi.nets.faceLandmark68Net.loadFromUri('/models');
     await faceapi.nets.faceRecognitionNet.loadFromUri('/models');
@@ -28,6 +29,16 @@ async function referenceData() {
     console.log(faceDescriptors);
     reference = [new faceapi.LabeledFaceDescriptors("Vaibhav Mittal", [faceDescriptors])];
     console.log(reference, "Hiii");
+    // saving in local storage
+    localStorage.setItem("descriptor", JSON.stringify(reference));
+    // get data from local storage
+    var convertedReference = JSON.parse(localStorage.getItem("descriptor"));
+    // convert object to Float32Array
+    convertedReference[0].descriptors[0] = Float32Array.from(convertedReference[0].descriptors[0]);
+    // construct labeled face descriptor from data from localStorage and save it in the variable
+    // declared in line 5
+    convertedRef = [new faceapi.LabeledFaceDescriptors(convertedReference[0].label, [convertedReference[0].descriptors[0]])];
+    console.log(convertedRef);
 }
 async function playFunc() {
     const mtcnnParams = {
@@ -43,6 +54,8 @@ async function playFunc() {
     let fullFaceDescriptions = await faceapi.detectAllFaces(input, options).withFaceLandmarks().withFaceDescriptors();
     const resizedDetections = faceapi.resizeResults(fullFaceDescriptions, displaySize);
     let labeledDescriptors = reference;
+    // UNCOMMENT TO USE CONVERTED REF FROM LOCAL STORAGE AND COMMENT THE LINE ABOVE
+    // let labeledDescriptors = convertedRef;
     if(labeledDescriptors) {
         console.log(labeledDescriptors[0]);
         const maxDescriptorDistance = 0.6;
