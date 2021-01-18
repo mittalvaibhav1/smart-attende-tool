@@ -1,4 +1,11 @@
 const Hero = () => {
+    const handleStart = () => {
+        window.scrollTo({
+            top: window.innerHeight,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }
     return (  
         <div className="hero">
             <div className="hero_text">
@@ -15,7 +22,7 @@ const Hero = () => {
                     the help of machine learning and deep algorithms.
                 </p>
                 <div className="hero_buttons">
-                    <div className="start">Start</div>
+                    <div onClick = {handleStart} className="start">Start</div>
                     <div className="watch">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="playIcon"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>   
                         <span>Watch More</span>
