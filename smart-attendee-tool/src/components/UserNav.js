@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import ReactNotification from 'react-notifications-component';
 import { store } from 'react-notifications-component';
+import Dropdown from './Dropdown';
 
 const UserNav = () => {
     const { user } = useContext(UserContext);
@@ -33,7 +34,8 @@ const UserNav = () => {
             </div>
             <div className="nav_user">
                 <img src={user.photoURL} alt=""/>
-                <span>{user.displayName} <span>&#x25BC;</span></span>
+                {/* <span>{user.displayName} <span> */}
+                <span><Dropdown userName = {user.displayName } /></span>
             </div>
         </div>
     );
