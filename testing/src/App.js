@@ -1,9 +1,10 @@
+import ImageUpload from "./ImageUpload";
 import Videocam from "./Videocam";
 
 function App() {
   return (
     <div className="App">
-      <Videocam></Videocam>
+      <ImageUpload></ImageUpload>
     </div>
   );
 }
