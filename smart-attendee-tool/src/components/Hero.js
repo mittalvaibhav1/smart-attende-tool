@@ -1,7 +1,7 @@
 const Hero = () => {
     const handleStart = () => {
         window.scrollTo({
-            top: window.innerHeight,
+            top: 1000,
             left: 0,
             behavior: 'smooth'
         });

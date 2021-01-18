@@ -48,7 +48,7 @@ body {
   flex-wrap: wrap;
 }
 .hero_text {
-  max-width: 48rem;
+  max-width: 35rem;
   margin-left: 50px;
 }
 .hero_heading, .services_heading > h1 {
