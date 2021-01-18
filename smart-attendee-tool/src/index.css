@@ -370,3 +370,9 @@ footer > span, footer > span > a {
   font-size: 12px;
   
 }
+.MuiButton-label > span {
+  font-family: sans-serif;
+  text-transform: capitalize;
+  font-weight: medium;
+  padding-right:10px;
+}
