@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import 'react-notifications-component/dist/theme.css'
 import './index.css';
 import App from './App';
 
