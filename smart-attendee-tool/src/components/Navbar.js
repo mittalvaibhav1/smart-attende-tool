@@ -22,9 +22,9 @@ const Navbar = () => {
         <>
             <div className="navbar">
                 <div className="navbar_logo">
-                    <img src="./cgc-landran-logo.jpg" alt=""/>
+                    <img src="./face-recognition.png" alt=""/>
                 </div>
-                <span className="navbar_text">CGC Landran</span>
+                <span className="navbar_text">Smart Attendee Tool</span>
                 <div className="nav_items">
                     <a onClick = {handleClick} href="/about">About</a>
                     <a onClick = {handleClick} href="/contactus">Contact us</a>

@@ -200,7 +200,8 @@ footer > span, footer > span > a {
   padding:  2rem 3rem ;
 }
 .login_logo > img {
-  height: 5rem;
+  height: 5rem 15rem;
+  padding: 0rem 2rem;
   width: auto;
 }
 .login_button {
