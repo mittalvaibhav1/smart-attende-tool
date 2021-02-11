@@ -5,7 +5,7 @@ import db from '../firebase';
 import { UserContext } from '../contexts/UserContext';
 import firebase from 'firebase'
 
-const Videocam = ({attendance, setAttendance, setVideoStream }) => {
+const Videocam = ({setAttendance, videoStream, setVideoStream }) => {
     const videoRef = useRef(null);
     const [loading, setLoading] = useState(true);
     const { user } = useContext(UserContext);
@@ -37,7 +37,7 @@ const Videocam = ({attendance, setAttendance, setVideoStream }) => {
         await faceapi.nets.faceLandmark68Net.loadFromUri('/models');
         await faceapi.nets.faceRecognitionNet.loadFromUri('/models');
         await faceapi.nets.mtcnn.loadFromUri('/models');
-        setLoading(false);
+        return Promise.resolve();
     }
 
     async function mark_attendance() {
@@ -91,23 +91,32 @@ const Videocam = ({attendance, setAttendance, setVideoStream }) => {
         }
     }
 
+    useEffect(async () => {    
+        await load_models(setLoading);
+        setLoading(false);
+    },[]);
+
     useEffect(() => {
-        navigator.mediaDevices.getUserMedia({ video: true })
+        if(loading) {
+            navigator.mediaDevices.getUserMedia({ video: true })
             .then(stream => {
                 setVideoStream(stream);
-                videoRef.current.srcObject = stream;
+                document.getElementById('inputVideo').srcObject = stream;
             })
             .catch(err => {
                 console.log(err.message);
             });
-            
-        load_models(setLoading);
-    },[]);
+        }
+    },[loading]);
+
+    useEffect(() => {
+        if(videoRef.current) videoRef.current.srcObject = videoStream;
+    }, [videoStream,videoRef]);
 
     return (
         <div className="videocam">
             {loading && <Loader type="Circles" color="white" height={80} width={80}/> }
-            { !loading && !attendance && <video  id = "inputVideo" ref = {videoRef} onPlay = { mark_attendance } autoPlay ={true}  muted></video> } 
+            { !loading && <video  id = "inputVideo" ref = {videoRef} onPlay = { mark_attendance } autoPlay ={true}  muted></video> } 
         </div>
     );
 }
