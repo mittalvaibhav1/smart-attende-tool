@@ -37,7 +37,7 @@ const Login = () => {
             <div className="login_body">
                 <div className="login_body_content">
                     <div className="login_logo">
-                        <img src="./cgc-landran-logo.jpg" alt=""/>
+                        <img src="./face-recognition.png" alt=""/>
                     </div>
                     <h2>Sign In</h2>
                     <div className="login_button" onClick = { google_signIn }>
