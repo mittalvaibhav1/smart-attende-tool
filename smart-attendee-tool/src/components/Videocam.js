@@ -5,7 +5,7 @@ import db from '../firebase';
 import { UserContext } from '../contexts/UserContext';
 import firebase from 'firebase'
 
-const Videocam = ({setAttendance, videoStream, setVideoStream }) => {
+const Videocam = ({setAttendance, setVideoStream }) => {
     const videoRef = useRef(null);
     const [loading, setLoading] = useState(true);
     const { user } = useContext(UserContext);
@@ -94,10 +94,10 @@ const Videocam = ({setAttendance, videoStream, setVideoStream }) => {
     useEffect(async () => {    
         await load_models(setLoading);
         setLoading(false);
-    },[]);
+    },[setLoading]);
 
     useEffect(() => {
-        if(loading) {
+        if(loading && videoRef) {
             navigator.mediaDevices.getUserMedia({ video: true })
             .then(stream => {
                 setVideoStream(stream);
@@ -107,11 +107,7 @@ const Videocam = ({setAttendance, videoStream, setVideoStream }) => {
                 console.log(err.message);
             });
         }
-    },[loading]);
-
-    useEffect(() => {
-        if(videoRef.current) videoRef.current.srcObject = videoStream;
-    }, [videoStream,videoRef]);
+    },[loading,videoRef,setVideoStream]);
 
     return (
         <div className="videocam">
