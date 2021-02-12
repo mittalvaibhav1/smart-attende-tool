@@ -97,11 +97,11 @@ const Videocam = ({setAttendance, setVideoStream }) => {
     },[setLoading]);
 
     useEffect(() => {
-        if(loading && videoRef) {
+        if(!loading && videoRef.current) {
             navigator.mediaDevices.getUserMedia({ video: true })
             .then(stream => {
                 setVideoStream(stream);
-                document.getElementById('inputVideo').srcObject = stream;
+                videoRef.current.srcObject = stream;
             })
             .catch(err => {
                 console.log(err.message);
