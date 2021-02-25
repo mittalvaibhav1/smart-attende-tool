@@ -1,3 +1,0 @@
-[0115/115403.072:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
-[0115/220843.613:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
-[0115/222253.154:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\mitta\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\d25e677e-0004-4687-af44-67e4c9c2d864: The system cannot find the path specified. (0x3)
