@@ -2,7 +2,7 @@ const Footer = () => {
     return ( 
         <footer>
             <span>
-                Check out my work on <a href="https://github.com/Kritika1300" target="_blank">Github </a>
+                Check out the project repository on <a href="https://github.com/mittalvaibhav1/smart-attende-tool" target="_blank"> Github</a>
             </span>
         </footer>
     );
